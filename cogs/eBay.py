@@ -73,8 +73,7 @@ class EbayScraper(commands.Cog):
         Command to search for sold items on eBay to get an idea of its market value
         A help command exists to help the user understand how to use the search command
         """
-
-        if ctx.channel.id == docs.price_check_channel_id:
+        if ctx.channel.id == docs.price_check_channel_id:   # limiting to one channel called #price-check
             if 'help' in item:
                 help_embed = discord.Embed(
                     title=f'eBay Search Help',
