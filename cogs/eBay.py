@@ -67,7 +67,7 @@ class EbayScraper(commands.Cog):
         return minimum_value, maximum_value
 
     @commands.command()
-    async def search(self, ctx, *, item):
+    async def ebay(self, ctx, *, item):
         """
         Command to search for sold items on eBay to get an idea of its market value
         A help command exists to help the user understand how to use the search command
@@ -144,7 +144,7 @@ class EbayScraper(commands.Cog):
                                            value=f'Make sure you spelt the item correctly, as the search filter is '
                                                  f'looking for an exact match. Your search term `{item}` may be '
                                                  f'spelt incorrectly.\n\n'
-                                                 f'`!search help` may be able to help you.',
+                                                 f'`!ebay help` may be able to help you.',
                                            inline=False)
                 no_results_embed.add_field(name='No used items being sold with your search term',
                                            value=f'There may be 0 results for your item that are sold as used '
@@ -173,7 +173,7 @@ class EbayScraper(commands.Cog):
                     title=f'eBay Sold Items Search: {item}',
                     description=f'The values below may not contain all of the sold items due to the filers being used '
                                 f'on [eBay Advanced search](https://www.ebay.co.uk/sch/ebayadvsearch). The results are '
-                                f'trimmed by {int(trim_percentage * 100)}% to remove outliers. Use `!search help` '
+                                f'trimmed by {int(trim_percentage * 100)}% to remove outliers. Use `!ebay help` '
                                 f'for help.',
                     colour=0x6b9312,
                 )
