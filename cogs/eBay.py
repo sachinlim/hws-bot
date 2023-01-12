@@ -82,15 +82,15 @@ class EbayScraper(commands.Cog):
 
             help_embed.add_field(name='Format',
                                  value=f'**DO NOT ABUSE** this command as it **may get IP blocked** by eBay!\n'
-                                       f'The correct way to search is by typing: !search `[item]`\n\n'
-                                       f'Example: !search rtx 3070',
+                                       f'The correct way to search is by typing: !ebay `[item]`\n\n'
+                                       f'Example: !ebay rtx 3070',
                                  inline=False)
             help_embed.add_field(name='Specific items',
                                  value=f'Items such as CPUs or RAM may get diluted in the search results because '
                                        f'they are part of a PC build. Some items may need to be formatted in a way '
                                        f'so that the search filter searches for the right items.\n\n'
-                                       f'Example: !search ryzen 5800x **cpu**\n'
-                                       f'Example: !search ddr4 ram **2x8gb**',
+                                       f'Example: !ebay ryzen 5800x **cpu**\n'
+                                       f'Example: !ebay ddr4 ram **2x8gb**',
                                  inline=False)
             help_embed.add_field(name='0 results',
                                  value=f'You may have entered the wrong spelling of the item you are trying to search '
@@ -112,11 +112,6 @@ class EbayScraper(commands.Cog):
                                        f'Look at the prices displayed in the Range column. '
                                        f"If the range's lower value is quite low or the range's upper value is quite "
                                        f'high, accessories or other items may be included in the pool of results. ',
-                                 inline=False)
-            help_embed.add_field(name='Low numbers of items being analysed',
-                                 value=f'Sometimes, there are a low number of items being analysed. This is due to '
-                                       f'there not being as many items sold on eBay with the search filters being '
-                                       f'used. More often, it may mean there is a lack of **used** items being sold.',
                                  inline=False)
             help_embed.add_field(name='If everything fails',
                                  value=f'Please use the manual [eBay Advanced search]'
