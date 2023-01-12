@@ -73,7 +73,8 @@ class EbayScraper(commands.Cog):
         Command to search for sold items on eBay to get an idea of its market value
         A help command exists to help the user understand how to use the search command
         """
-        if ctx.channel.id == docs.price_check_channel_id:   # limiting to one channel called #price-check
+        # limiting to one channel called #price-check or # bot-commands
+        if ctx.channel.id == docs.price_check_channel_id or ctx.channel.id == docs.bot_commands_channel_id:
             if 'help' in item:
                 help_embed = discord.Embed(
                     title=f'eBay Search Help',
@@ -88,11 +89,13 @@ class EbayScraper(commands.Cog):
                                            f'Example: !ebay rtx 3070',
                                      inline=False)
                 help_embed.add_field(name='Specific items',
-                                     value=f'Items such as CPUs or RAM may get diluted in the search results because '
+                                     value=f'Items such as CPUs, RAM or GPU may get diluted in the search results because '
                                            f'they are part of a PC build. Some items may need to be formatted in a way '
                                            f'so that the search filter searches for the right items.\n\n'
                                            f'Example: !ebay ryzen 5800x **cpu**\n'
-                                           f'Example: !ebay ddr4 ram **2x8gb**',
+                                           f'Example: !ebay ddr4 ram **2x8gb**\n\n'
+                                           f'Sadly, if you are searching for GPUs that have `Ti` or `Super` in the name'
+                                           f', the search will still include those. It will try to trim the outliers.',
                                      inline=False)
                 help_embed.add_field(name='0 results',
                                      value=f'You may have entered the wrong spelling of the item you are trying to search '
@@ -115,9 +118,15 @@ class EbayScraper(commands.Cog):
                                            f"If the range's lower value is quite low or the range's upper value is quite "
                                            f'high, accessories or other items may be included in the pool of results. ',
                                      inline=False)
+                help_embed.add_field(name='Other issues',
+                                     value=f'If there are only a few items being sold, the results may not be accurate '
+                                           f'as there are not enough results from within the UK. ',
+                                     inline=False)
                 help_embed.add_field(name='If everything fails',
                                      value=f'Please use the manual '
-                                           f'[eBay Advanced search]help you in this case. :( ',
+                                           f'[eBay Advanced search](https://www.ebay.co.uk/sch/ebayadvsearch) '
+                                           f'and see the status of the market for your item. This bot cannot '
+                                           f'help you in this case. :( ',
                                      inline=False)
 
                 await ctx.send(embed=help_embed)
@@ -167,9 +176,8 @@ class EbayScraper(commands.Cog):
 
                     embed = discord.Embed(
                         title=f'eBay Sold Items Search: {item}',
-                        description=f'The values below may not contain all of the sold items due to the filers being '
-                                    f'used on [eBay Advanced search](https://www.ebay.co.uk/sch/ebayadvsearch). The '
-                                    f'results are trimmed by {int(trim_percentage * 100)}% to remove outliers. '
+                        description=f'The values below are to give you an idea of the market value but may not be 100% '
+                                    f'accurate due to how the search filters are working. \n\n '
                                     f'Use `!ebay help` for help.',
                         colour=0x6b9312,
                     )
@@ -190,7 +198,8 @@ class EbayScraper(commands.Cog):
         else:
             embed = discord.Embed(colour=0xce2d32)
             embed.description = f'Wrong channel to do this search. It is only available in ' \
-                                f'[#price-check]({docs.price_check_channel_link}).'
+                                f'[#price-check]({docs.price_check_channel_link}) and [#bot-commands]' \
+                                f'({docs.bot_commands_channel_link}).'
             await ctx.send(embed=embed)
 
 
