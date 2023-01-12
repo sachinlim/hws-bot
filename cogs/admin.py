@@ -5,14 +5,6 @@ class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def clear(self, ctx, amount=1):
-        """
-        Command to delete previous messages
-        +1 is done so that the command call is also deleted
-        """
-        await ctx.channel.purge(limit=amount + 1)
-
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
