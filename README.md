@@ -6,4 +6,6 @@ This bot is a smaller version of the main [Discord Bot](https://github.com/sachi
 
 HardwareSwapUK is a [community on Reddit](https://www.reddit.com/r/HardwareSwapUK/) where people can buy, sell or trade hardware in the UK. It also exists on Discord but the origin of the community is on Reddit. This bot is implemented on the Discord server. 
 
-![image](https://user-images.githubusercontent.com/80691974/212069011-4be080de-0f4e-4546-9cae-4e71b24ab696.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80691974/212421681-012e0771-e3be-4997-8022-c385daee6d49.png" width="500" align="left">
+</p>
