@@ -20,6 +20,6 @@ HardwareSwapUK is a [community on Reddit](https://www.reddit.com/r/HardwareSwapU
 
 ### Mean, median, mode and range
 
-These values are important for traders to understand what is happening with sold items on eBay. Of the 4 values, the mean (average sold price) and the rage are perhaps the most beneficial, as it tells a seller what ballpark they are in. 15% of the lowest and highest values are still being trimmed (removed) to remove outliers. 
+These values are important for traders to understand what is happening with sold items on eBay. Of the 4 values, the mean (average sold price) and the range are perhaps the most beneficial, as it tells a seller what ballpark they are in. 15% of the lowest and highest values are still being trimmed (removed) to remove outliers. 
 
 For example, for an item with an average price of £400 and a range of £350-£425, the seller could choose to sell at a price between £350 and £390 to sell the item quicker. The opposite is true if the seller is willing to wait - they can sell their item between £410 and £425, as these are the prices that the item has previously sold for. 
