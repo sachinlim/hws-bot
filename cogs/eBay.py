@@ -177,7 +177,8 @@ class EbayScraper(commands.Cog):
                     embed = discord.Embed(
                         title=f'eBay Sold Items Search: {item}',
                         description=f'The values below are to give you an idea of the market value but may not be 100% '
-                                    f'accurate due to how the search filters are working. \n\n '
+                                    f'accurate due to how the '
+                                    f'[search filters](https://www.ebay.co.uk/sch/ebayadvsearch) are working. \n\n '
                                     f'Use `!ebay help` for help.',
                         colour=0x6b9312,
                     )
