@@ -18,7 +18,7 @@ class Deals(commands.Cog):
                 if payload.emoji.name == "🔥":
                     reaction = get(message.reactions, emoji=payload.emoji.name)
 
-                    if reaction and reaction.count >= docs.deals_required_reaction_count:
+                    if reaction and reaction.count == docs.deals_required_reaction_count:
                         await message.channel.send(f'Hot deal for <@&{docs.deals_role_id}> members!',
                                                    reference=message)
 
