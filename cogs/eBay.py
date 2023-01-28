@@ -89,34 +89,35 @@ class EbayScraper(commands.Cog):
                                            f'Example: !ebay rtx 3070',
                                      inline=False)
                 help_embed.add_field(name='Specific items',
-                                     value=f'Items such as CPUs, RAM or GPU may get diluted in the search results because '
-                                           f'they are part of a PC build. Some items may need to be formatted in a way '
-                                           f'so that the search filter searches for the right items.\n\n'
+                                     value=f'Items such as CPUs, RAM or GPU may get diluted in the search results '
+                                           f'because they are part of a PC build. Some items may need to be formatted '
+                                           f'in a way so that the search filter searches for the right items.\n\n'
                                            f'Example: !ebay ryzen 5800x **cpu**\n'
                                            f'Example: !ebay ddr4 ram **2x8gb**\n\n'
                                            f'Sadly, if you are searching for GPUs that have `Ti` or `Super` in the name'
                                            f', the search will still include those. It will try to trim the outliers.',
                                      inline=False)
                 help_embed.add_field(name='0 results',
-                                     value=f'You may have entered the wrong spelling of the item you are trying to search '
-                                           f'for.\n\n'
+                                     value=f'You may have entered the wrong spelling of the item you are trying to '
+                                           f'search for.\n\n'
                                            f'There may be *no results* for your item on eBay. It might also be because '
                                            f'there are no results with the matching search term.',
                                      inline=False)
                 help_embed.add_field(name='What is the trimmed mean?',
-                                     value=f'The trimmed mean is the average of the results with the x% of results removed '
-                                           f'from the lowest and highest values.\n\n'
+                                     value=f'The trimmed mean is the average of the results with the x% of results '
+                                           f'removed from the lowest and highest values.\n\n'
                                            f'For this search, the trimmed mean is set to '
                                            f'15%. 15% of the lowest and highest results are removed to remove any '
                                            f'potential outliers.',
                                      inline=False)
                 help_embed.add_field(name='Inflated prices',
-                                     value=f'If you come across higher/lower values than expected, it may be due to the '
-                                           f'search filter being used is accounting for irrelevant items. Even with the '
-                                           f'trimmed mean in-place, it cannot remove everything.\n\n'
+                                     value=f'If you come across higher/lower values than expected, it may be due to '
+                                           f'the search filter being used is accounting for irrelevant items. Even '
+                                           f'with the trimmed mean in-place, it cannot remove everything.\n\n'
                                            f'Look at the prices displayed in the Range column. '
-                                           f"If the range's lower value is quite low or the range's upper value is quite "
-                                           f'high, accessories or other items may be included in the pool of results. ',
+                                           f"If the range's lower value is quite low or the range's upper value is "
+                                           f'quite high, accessories or other items may be included in the pool of '
+                                           f'results.',
                                      inline=False)
                 help_embed.add_field(name='Other issues',
                                      value=f'If there are only a few items being sold, the results may not be accurate '
