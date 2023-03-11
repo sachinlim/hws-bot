@@ -9,6 +9,13 @@ class Deals(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
+        """
+        Pings users when links have reached a certain number of reactions
+        Users must have signed up for the required role to be alerted
+
+        :param payload: an event's data, such as users reacting to a message
+        :return: a message that pings users with a certain role
+        """
         channel = self.bot.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
 

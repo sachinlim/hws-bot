@@ -11,13 +11,24 @@ class EbayScraper(commands.Cog):
         self.bot = bot
 
     def format_search_term(self, link):
-        # eBay wants to use + in place of spaces in the search term
+        """
+        eBay wants to use + in place of spaces in the search term
+
+        :param link: name of the item being passed onto the Bot
+        :return: formatted string with + in place of spaces
+        """
         formatted_search_term = link.replace(" ", "+")
 
         return formatted_search_term
 
     def website_data(self, search):
-        # URL contains search filters: "Exact words, any order", Used, Sold listings, and UK only
+        """
+        Adds the formatted search term onto the URL Link
+        URL contains search filters: "Exact words, any order", Used, Sold listings, and UK only
+
+        :param search: formatted string with + in place of spaces
+        :return: raw data from the URL location
+        """
         url = f'https://www.ebay.co.uk/sch/i.html?_from=R40&_nkw={search}' \
               f'&_in_kw=4&_ex_kw=&_sacat=0&LH_Sold=1&_udlo=&_udhi=&LH_ItemCondition=4&_samilow=&_samihi=' \
               f'&_stpos=M300AA&_sargn=-1%26saslc%3D1&_fsradio2=%26LH_LocatedIn%3D1&_salic=3&LH_SubLocation=1' \
@@ -28,6 +39,13 @@ class EbayScraper(commands.Cog):
         return soup
 
     def get_data(self, soup):
+        """
+        Looks for the sold item information from the obtained raw data
+        Sorts the sold prices from lowest to highest, and then removes 15% from both ends
+
+        :param soup: raw data obtained from the website
+        :return: array with data trimmed and the data associated with trimming
+        """
         products = []
         results = soup.find('div', {'class': 'srp-river-results clearfix'}).find_all('li', {'class':
                                                                                                 's-item s-item__pl-on-bottom'})
@@ -54,6 +72,12 @@ class EbayScraper(commands.Cog):
         return trimmed_results_list, trim_percentage, trimming, original_results_length
 
     def calculate_averages(self, results):
+        """
+        Calculates the mean, median and mode for the array of results being passed in
+
+        :param results: array of results
+        :return: mean, median, mode
+        """
         trimmed_mean = statistics.mean(results)
         median = statistics.median(results)
         mode = statistics.mode(results)
@@ -61,7 +85,12 @@ class EbayScraper(commands.Cog):
         return trimmed_mean, median, mode
 
     def calculate_range(self, my_list):
-        # Calculating the first and last values in the sorted list of results for the range
+        """
+        Calculating the first and last values in the sorted list of results for the range
+
+        :param my_list: array of results
+        :return: minimum and maximum values from the list
+        """
         minimum_value = min(my_list)
         maximum_value = max(my_list)
 
@@ -72,8 +101,8 @@ class EbayScraper(commands.Cog):
         """
         Command to search for sold items on eBay to get an idea of its market value
         A help command exists to help the user understand how to use the search command
+        The command also is only allowed in channels called #price-check or # bot-commands
         """
-        # limiting to one channel called #price-check or # bot-commands
         if ctx.channel.id == docs.price_check_channel_id or ctx.channel.id == docs.bot_commands_channel_id:
             if 'help' in item:
                 help_embed = discord.Embed(
@@ -198,6 +227,7 @@ class EbayScraper(commands.Cog):
 
                     await ctx.send(embed=embed)
         else:
+            # message was entered in a channel that the search command will not work in
             embed = discord.Embed(colour=0xce2d32)
             embed.description = f'Wrong channel to do this search. It is only available in ' \
                                 f'[#price-check]({docs.price_check_channel_link}) and [#bot-commands]' \
