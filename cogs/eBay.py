@@ -101,7 +101,7 @@ class EbayScraper(commands.Cog):
         """
         Command to search for sold items on eBay to get an idea of its market value
         A help command exists to help the user understand how to use the search command
-        The command also is only allowed in channels called #price-check or # bot-commands
+        The command also is only allowed in channels called #price-check or #bot-commands
         """
         if ctx.channel.id == docs.price_check_channel_id or ctx.channel.id == docs.bot_commands_channel_id:
             if 'help' in item:
