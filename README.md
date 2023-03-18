@@ -7,6 +7,12 @@ This bot is a smaller version of the main [Discord Bot](https://github.com/sachi
 * Shortens links from eBay UK and Amazon UK
 * Pings users with a certain role if a deal posted within a certain channel has enough votes 
 
+### Features to be added
+
+- [ ] Shorten links for a variety of other websites
+- [ ] Enable users to interact with the bot's messages by using reactions (bot will then edit its message)
+- [ ] Prompt users of incorrect formatting when listing their items for sale or looking for certain items to buy
+
 ### Community Requested features
 
 These are the features being requested by the community, as of 14th March 2023:
