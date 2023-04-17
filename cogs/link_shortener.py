@@ -20,6 +20,14 @@ class LinkShortener(commands.Cog):
                 await message.channel.send(f'The shortened eBay link for the one submitted by '
                                            f'{message.author.mention}: {new_link}')
                 await message.delete()
+                
+        if message.content.startswith('https://www.hotukdeals.com'):
+            if "/share-deal-from-app/" in message.content:
+                new_link = message.content.replace("/share-deal-from-app/", "/")
+
+                await message.channel.send(f'The generic HotUKDeals link for the one submitted by '
+                                           f'{message.author.mention}: {new_link}')
+                await message.delete()
 
         # Amazon can start with smile.amazon because of their charity donation website version
         if message.content.startswith('https://www.amazon.co.uk/') or \
