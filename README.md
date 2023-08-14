@@ -18,6 +18,7 @@ This bot is a smaller version of the main [Discord Bot](https://github.com/sachi
 These are the features being requested by the community, as of 14th March 2023:
 - [ ] [CeX](https://uk.webuy.com/) information retrieval (similar to the `!eBay` command - there was a bot for this before)
 - [ ] Option to have eBay [ephemeral](https://support.discord.com/hc/en-us/articles/1500000580222-Ephemeral-Messages-FAQ) commands (when running the eBay command, make it so that only the user can see the message)
+- [ ] Allow the link shortener to contain text that was entered after the link - inside the same message
 
 
 ## HardwareSwapUK
