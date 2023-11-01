@@ -2,23 +2,14 @@
 
 This bot is a smaller version of the main [Discord Bot](https://github.com/sachinlim/discord-bot) project. It incorporates the `!search` command and has renamed it to `!ebay` because there are other website specific commands available from other bots in the server. 
 
+### October 2023 Update
+
+As of October 2023, the bot is no longer active. The code for the eBay command has been moved over to a [newer bot](https://github.com/hwsuk/harmony) that also implements the [ephemeral](https://support.discord.com/hc/en-us/articles/1500000580222-Ephemeral-Messages-FAQ) messages and allows for greater collaboration.
+
 ### Additional features
 
 * Shortens links from eBay UK and Amazon UK
 * Pings users with a certain role if a deal posted within a certain channel has enough votes 
-
-### Features to be added
-
-- [ ] Shorten links for a variety of other websites
-- [ ] Enable users to interact with the bot's messages by using reactions (bot will then edit its message)
-- [ ] Prompt users of incorrect formatting when listing their items for sale or looking for certain items to buy
-
-### Community Requested features
-
-These are the features being requested by the community, as of 14th March 2023:
-- [ ] [CeX](https://uk.webuy.com/) information retrieval (similar to the `!eBay` command - there was a bot for this before)
-- [ ] Option to have eBay [ephemeral](https://support.discord.com/hc/en-us/articles/1500000580222-Ephemeral-Messages-FAQ) commands (when running the eBay command, make it so that only the user can see the message)
-- [ ] Allow the link shortener to contain text that was entered after the link - inside the same message
 
 
 ## HardwareSwapUK
